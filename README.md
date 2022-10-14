@@ -8,14 +8,14 @@ With the discord bot set up on a server, the following commands are possible thr
 
  - Attendee sign in: **@Bot *(password) (name)***
  - Retrieve CSV file: **@Bot *(get_csv_code)***
- - *Change the password: **@Bot *(set_pass_code) (new_password)***
+ - Change the password: **@Bot *(set_pass_code) (new_password)***
 
 Make sure to remove the parenthesis when filling in the command. *get_csv_code* and *set_pass_code* are private keys required to use admin commands. They are set in a secrets file associated with the main script. If you wish to keep the attendance sheet private, only use the command in direct messages with the bot.
 
 The password is only reset temporarily until the server is restarted.
 In rare occurrences, the server may restart when attendance is being taken.
 
-If a .CSV file will be created automatically when first used. Please avoid changing this file, as it can stop the bot from saving data properly.
+A .CSV file will be created automatically when first used. Please avoid changing this file, as it can stop the bot from saving data properly.
 
 ## CSV Format
 
