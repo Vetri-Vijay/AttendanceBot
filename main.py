@@ -4,7 +4,7 @@
 ##
 ## Author: Vetri Vijay
 ## Credits: Allen Zhao and Valabh Korivi
-## Email: vetivijay2002@gmail.com
+## Email: vetrivijay2002@gmail.com
 ##################################################
 
 import os
@@ -80,12 +80,11 @@ async def on_message(message):
     await message.channel.send(f"---------------------------| Help |--------------------------\nCommand Usage: @SolarAttendance code name\nExample: @SolarAttendance password123 Vetri Vijay")
     
   elif command == code:
-    # await message.channel.send("https://tenor.com/view/kitty-cat-sandwich-cats-sandwich-gif-26112528")
     if name == "":
       await message.channel.send(f"You forgot your name, add it after the code\n")
     else:
       tz_city = pytz.timezone('America/Detroit')
-      d1 = datetime.now(tz_city).strftime("%m,%d,%Y")
+      d1 = datetime.now(tz_city).strftime("%m/%d/%Y")
       try:
         df = pd.read_csv('attendencesheet.csv')
       except:
@@ -99,10 +98,13 @@ async def on_message(message):
     print()
     CODE = name
     await message.channel.send(f"Code Updated\n")
+    
   elif command == GETFILE:
     await message.channel.send(file=discord.File('attendencesheet.csv'))
+    
   else:
     await message.channel.send(f"Incorrect Code Entered\n")
+    
   try: await message.delete()
   except: pass
 
