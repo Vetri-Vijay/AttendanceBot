@@ -22,6 +22,7 @@ CODE = os.environ.get('DISCORD_CODE')
 CONFIGCODE = os.environ.get('DISCORD_CONFIGCODE')
 FILE = os.environ.get('DISCORD_FILE')
 CONFIGFILE = os.environ.get('DISCORD_CONFIGFILE')
+GETFILE = os.environ.get('DISCORD_GETFILE')
 
 client = discord.Client(intents=discord.Intents.default())
 
@@ -74,7 +75,7 @@ async def on_message(message):
     return
 
   code = CODE.lower()
-
+  print(command)
   if command == "help":
     await message.channel.send(f"---------------------------| Help |--------------------------\nCommand Usage: @SolarAttendance code name\nExample: @SolarAttendance password123 Vetri Vijay")
     
@@ -98,9 +99,11 @@ async def on_message(message):
     print()
     CODE = name
     await message.channel.send(f"Code Updated\n")
-    
+  elif command == GETFILE:
+    await message.channel.send(file=discord.File('attendencesheet.csv'))
   else:
     await message.channel.send(f"Incorrect Code Entered\n")
-  await message.delete()
+  try: await message.delete()
+  except: pass
 
 client.run(TOKEN)
